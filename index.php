@@ -11,7 +11,7 @@ class Movie
 
     public function setCountryOfOrigin($movieCountryOfOrigin)
     {
-        $this->title = $movieCountryOfOrigin;
+        $this->countryOfOrigin = $movieCountryOfOrigin;
     }
 
 
@@ -24,12 +24,11 @@ class Movie
 }
 
 $trainspotting = new Movie();    // tra () quello da passare al costruttore
-$trainspotting->title = "Trainspotting";
-$trainspotting->countryOfOrigin = "Scotland";
+$trainspotting->setTitle('Trainspotting');
+$trainspotting->setCountryOfOrigin('Scotland');
+
+var_dump($trainspotting);
 
 $memento = new Movie(); // tra () quello da passare al costruttore
 $memento->title = "Memento";
 $memento->countryOfOrigin = "United States";
-
-var_dump($trainspotting);
-var_dump($memento);
