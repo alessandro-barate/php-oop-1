@@ -52,8 +52,10 @@ $memento = new Movie('Memento', 'United States');   // tra () quello da passare 
 // $memento->setCountryOfOrigin('United States');
 // Questi 2 sopra prima della scrittura del costruttore
 
-var_dump($trainspotting);
-var_dump($memento);
+// var_dump($trainspotting);
+// var_dump($memento);
+
+
 
 ?>
 
@@ -71,9 +73,16 @@ var_dump($memento);
         <div class="row">
             <div class="col">
                 <ul>
-                    <li> <?php
-
-                            ?></li>
+                    <li><?php echo $trainspotting->getTitle() ?>
+                        <ul>
+                            <li><?php echo $trainspotting->getCountryOfOrigin() ?></li>
+                        </ul>
+                    </li>
+                    <li><?php echo $memento->getTitle() ?>
+                        <ul>
+                            <li><?php echo $memento->getCountryOfOrigin() ?></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
