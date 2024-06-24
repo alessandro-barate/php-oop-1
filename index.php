@@ -1,23 +1,25 @@
 <?php
 class Movie
 {
-    public $title;
-    public  $countryOfOrigin;
+    public string $title;
+    public string $countryOfOrigin;
 
     // public $duration = getDuration();
 
     public function __construct($_title, $_countryOfOrigin)
     {
-        echo 'ciao';
+        // echo 'ciao';
         $this->title = $_title;
         $this->countryOfOrigin = $_countryOfOrigin;
     }
+
+    // Esiste anche public function __destruct(), serve ad eliminare le variabili che, una volta usate, non ci servono più. Non è pratica comune usarlo, lo mettiamo solo all'occasione
 
 
 
     // Setter e Getter dell'attributo title
 
-    public function setTitle($movieTitle)
+    public function setTitle(string $movieTitle): void
     {
         $this->title = $movieTitle;
     }
@@ -30,7 +32,7 @@ class Movie
 
     // Setter e Getter dell'attributo countryOfOrigin
 
-    public function setCountryOfOrigin($movieCountryOfOrigin)
+    public function setCountryOfOrigin(string $movieCountryOfOrigin): void
     {
         $this->countryOfOrigin = $movieCountryOfOrigin;
     }
@@ -44,11 +46,13 @@ class Movie
 $trainspotting = new Movie('Trainspotting', 'Scotland');    // tra () quello da passare al costruttore
 // $trainspotting->setTitle('Trainspotting');
 // $trainspotting->setCountryOfOrigin('Scotland');
+// Questi 2 sopra prima della scrittura del costruttore
 
 
-$memento = new Movie('Memento', 'United States'); // tra () quello da passare al costruttore
+$memento = new Movie('Memento', 'United States');   // tra () quello da passare al costruttore
 // $memento->setTitle('Memento');
 // $memento->setCountryOfOrigin('United States');
+// Questi 2 sopra prima della scrittura del costruttore
 
 var_dump($trainspotting);
 var_dump($memento);
