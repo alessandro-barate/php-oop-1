@@ -1,12 +1,12 @@
 <?php
 class Movie
 {
-    public string $title;
-    public string $countryOfOrigin;
+    private string $title;
+    private string $countryOfOrigin;
 
     // public $duration = getDuration();
 
-    public function __construct($_title, $_countryOfOrigin)
+    public function __construct(string $_title, string $_countryOfOrigin)
     {
         // echo 'ciao';
         $this->title = $_title;
@@ -24,7 +24,7 @@ class Movie
         $this->title = $movieTitle;
     }
 
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -37,7 +37,7 @@ class Movie
         $this->countryOfOrigin = $movieCountryOfOrigin;
     }
 
-    public function getCountryOfOrigin()
+    public function getCountryOfOrigin(): string
     {
         return $this->countryOfOrigin;
     }
