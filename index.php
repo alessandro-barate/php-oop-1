@@ -4,6 +4,17 @@ class Movie
     public $title;
     public  $countryOfOrigin;
 
+    // public $duration = getDuration();
+
+    public function __construct($_title, $_countryOfOrigin)
+    {
+        echo 'ciao';
+        $this->title = $_title;
+        $this->countryOfOrigin = $_countryOfOrigin;
+    }
+
+
+
     // Setter e Getter dell'attributo title
 
     public function setTitle($movieTitle)
@@ -11,9 +22,9 @@ class Movie
         $this->title = $movieTitle;
     }
 
-    public function getTitle($movieTitle)
+    public function getTitle()
     {
-        $this->title = $movieTitle;
+        return $this->title;
     }
 
 
@@ -24,28 +35,20 @@ class Movie
         $this->countryOfOrigin = $movieCountryOfOrigin;
     }
 
-    public function getCountryOfOrigin($movieCountryOfOrigin)
+    public function getCountryOfOrigin()
     {
-        $this->countryOfOrigin = $movieCountryOfOrigin;
+        return $this->countryOfOrigin;
     }
-
-
-
-    // public $duration = getDuration();
-
-    // function __construct($duration)
-    // {
-    // }
 }
 
-$trainspotting = new Movie();    // tra () quello da passare al costruttore
-$trainspotting->setTitle('Trainspotting');
-$trainspotting->setCountryOfOrigin('Scotland');
+$trainspotting = new Movie('Trainspotting', 'Scotland');    // tra () quello da passare al costruttore
+// $trainspotting->setTitle('Trainspotting');
+// $trainspotting->setCountryOfOrigin('Scotland');
 
 
-$memento = new Movie(); // tra () quello da passare al costruttore
-$memento->setTitle('Memento');
-$memento->setCountryOfOrigin('United States');
+$memento = new Movie('Memento', 'United States'); // tra () quello da passare al costruttore
+// $memento->setTitle('Memento');
+// $memento->setCountryOfOrigin('United States');
 
 var_dump($trainspotting);
 var_dump($memento);
