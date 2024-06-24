@@ -1,8 +1,10 @@
 <?php
 class Movie
 {
-    private $title;
-    private  $genre;
+    public $title;
+    public  $genre;
 }
 
 $trainspotting  = new Movie();
+$trainspotting->title = "Trainspotting";
+$trainspotting->genre = "comedy";
