@@ -4,8 +4,6 @@ class Movie
     private string $title;
     private string $countryOfOrigin;
 
-    // public $duration = getDuration();
-
     public function __construct(string $_title, string $_countryOfOrigin)
     {
         // echo 'ciao';
@@ -56,3 +54,30 @@ $memento = new Movie('Memento', 'United States');   // tra () quello da passare 
 
 var_dump($trainspotting);
 var_dump($memento);
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie PHP</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <ul>
+                    <li> <?php
+
+                            ?></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
