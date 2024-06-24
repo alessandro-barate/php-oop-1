@@ -2,7 +2,20 @@
 class Movie
 {
     public $title;
-    public  $country;
+    public  $countryOfOrigin;
+
+    public function setTitle($movieTitle)
+    {
+        $this->title = $movieTitle;
+    }
+
+    public function setCountryOfOrigin($movieCountryOfOrigin)
+    {
+        $this->title = $movieCountryOfOrigin;
+    }
+
+
+
     // public $duration = getDuration();
 
     // function __construct($duration)
@@ -12,11 +25,11 @@ class Movie
 
 $trainspotting = new Movie();    // tra () quello da passare al costruttore
 $trainspotting->title = "Trainspotting";
-$trainspotting->country = "Scotland";
+$trainspotting->countryOfOrigin = "Scotland";
 
 $memento = new Movie(); // tra () quello da passare al costruttore
 $memento->title = "Memento";
-$memento->country = "United States";
+$memento->countryOfOrigin = "United States";
 
 var_dump($trainspotting);
 var_dump($memento);
