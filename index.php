@@ -44,7 +44,7 @@ class Movie
 
     public function setVote(int $movieVote): void
     {
-        if ($movieVote < 0) {
+        if ($movieVote <= 1 || $movieVote > 5) {
             throw new Exception('Voto non valido');
         }
         $this->vote = $movieVote;
@@ -58,7 +58,7 @@ class Movie
 
 try {
     $trainspotting = new Movie('Trainspotting', 'Scotland', 8);
-    $memento = new Movie('Memento', 'United States', -1);
+    $memento = new Movie('Memento', 'United States', 2);
 } catch (Exception $error) {
     echo $error->getMessage();
 }
