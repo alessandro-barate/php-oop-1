@@ -2,13 +2,17 @@
 class Movie
 {
     private string $title;
+    private int $year;
+    private array $genre;
     private string $countryOfOrigin;
     private int $vote;
 
-    public function __construct(string $_title, string $_countryOfOrigin, int $_vote)
+    public function __construct(string $_title, int $_year, string $_genre, string $_countryOfOrigin, int $_vote)
     {
         // echo 'ciao';
         $this->title = $_title;
+        $this->year = $_year;
+        $this->genre = $_genre;
         $this->countryOfOrigin = $_countryOfOrigin;
         $this->setVote($_vote);
     }
@@ -27,6 +31,32 @@ class Movie
     public function getTitle(): string
     {
         return $this->title;
+    }
+
+
+    // Setter e Getter dell'attributo $year
+
+    public function setYear(int $movieYear): void
+    {
+        $this->year = $movieYear;
+    }
+
+    public function getYear(): int
+    {
+        return $this->year;
+    }
+
+
+    // Setter e Getter dell'attributo $genre
+
+    public function setGenre(string $movieGenre): void
+    {
+        $this->genre = $movieGenre;
+    }
+
+    public function getGenre(): string
+    {
+        return $this->genre;
     }
 
 
@@ -59,12 +89,12 @@ class Movie
 $movies_list = [];
 
 try {
-    $movie1 = new Movie('Trainspotting', 'Scotland', 7);
-    $movie2 = new Movie('Memento', 'United States', 8);
-    $movie3 = new Movie('The Lord of The Rings', 'New Zealand', 10);
-    $movie4 = new Movie('Interstellar', 'United States', 10);
-    $movie5 = new Movie("Alex l'Ariete", 'Italia', 1);
-    $movie6 = new Movie('Jurassic Park', 'United States', 9);
+    $movie1 = new Movie('Trainspotting', 1996, 'Commedia', 'Scotland', 7); //drammatico
+    $movie2 = new Movie('Memento', 2000, 'Thriller', 'United States', 8); //drammatico
+    $movie3 = new Movie('The Lord of The Rings', 2001, 'Fantastico', 'New Zealand', 10); //epico
+    $movie4 = new Movie('Interstellar', 2014, 'Fantascienza', 'United States', 10); //avventura
+    $movie5 = new Movie("Alex l'Ariete", 2000, 'Poliziesco', 'Italia', 1);
+    $movie6 = new Movie('Jurassic Park', 1993, 'Fantascienza', 'United States', 9); // avventura
 
     $movies_list = [$movie1, $movie2, $movie3, $movie4, $movie5, $movie6];
 } catch (Exception $error) {
@@ -87,14 +117,14 @@ try {
     <div class="container">
         <div class="row">
             <div class="col">
-                <ul>Movies:
+                <h1>Movies</h1>
+                <ul>
                     <?php foreach ($movies_list as $movie) : ?>
                         <li>
                             <h2><?php echo $movie->getTitle() ?></h2>
-                        <li>
+                            <p>Year: <?php echo $movie->getYear() ?></p>
+                            <p>Genre: <?php echo $movie->getGenre() ?></p>
                             <p>Country of origin: <?php echo $movie->getCountryOfOrigin() ?></p>
-                        </li>
-                        <li>
                             <p>Vote: <?php echo $movie->getVote() ?></p>
                         </li>
                         <hr>
