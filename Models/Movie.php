@@ -8,9 +8,9 @@ class Movie
     private string $countryOfOrigin;
     private int $vote;
 
+    // Funzione costruttore
     public function __construct(string $_title, int $_year, array $_genre, string $_countryOfOrigin, int $_vote)
     {
-        // echo 'ciao';
         $this->title = $_title;
         $this->year = $_year;
         $this->genre = $_genre;
