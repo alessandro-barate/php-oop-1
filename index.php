@@ -5,11 +5,12 @@ class Movie
     private string $countryOfOrigin;
     private int $vote;
 
-    public function __construct(string $_title, string $_countryOfOrigin)
+    public function __construct(string $_title, string $_countryOfOrigin, int $_vote)
     {
         // echo 'ciao';
         $this->title = $_title;
         $this->countryOfOrigin = $_countryOfOrigin;
+        $this->vote = $_vote;
     }
 
     // Esiste anche public function __destruct(), serve ad eliminare le variabili che, una volta usate, non ci servono più. Non è pratica comune usarlo, lo mettiamo solo all'occasione
@@ -56,11 +57,10 @@ class Movie
 }
 
 try {
-    $trainspotting = new Movie('Trainspotting', 'Scotland');
-
-    $memento = new Movie('Memento', 'United States');
-} catch (Exception $e) {
-    echo ('Voto non valido');
+    $trainspotting = new Movie('Trainspotting', 'Scotland', 8);
+    $memento = new Movie('Memento', 'United States', -1);
+} catch (Exception $error) {
+    echo $error->getMessage();
 }
 
 
@@ -83,11 +83,13 @@ try {
                     <li><?php echo $trainspotting->getTitle() ?>
                         <ul>
                             <li><?php echo $trainspotting->getCountryOfOrigin() ?></li>
+                            <li><?php echo $trainspotting->getVote() ?></li>
                         </ul>
                     </li>
                     <li><?php echo $memento->getTitle() ?>
                         <ul>
                             <li><?php echo $memento->getCountryOfOrigin() ?></li>
+                            <li><?php echo $memento->getVote() ?></li>
                         </ul>
                     </li>
                 </ul>
