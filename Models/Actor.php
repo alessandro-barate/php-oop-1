@@ -85,6 +85,12 @@ class Actor
 
 try {
     $actor1 = new Actor('Ewan Gordon McGregor', 53, '31 March 1971', 'Perth', 'British');
+    $actor2 = new Actor('Guy Pearce', 57, '5 October 1967', 'Ely', 'Australian');
+    $actor3 = new Actor('Carrie-Anne Moss', 57, '21 August 1967', 'Burnaby', 'Canadian');
+    $actor4 = new Actor('Elijah Wood', 43, '28 January 1981', 'Cedar Rapids', 'American');
+    $actor5 = new Actor('Matthew McConaughey', 55, '4 November 1969', 'Uvalde', 'American');
+    $actor6 = new Actor('Alberto Tomba', 58, '19 December 1969', 'San Lazzaro di Savena', 'Italian');
+    $actor7 = new Actor('Nigel John Dermot Neill', 77, '14 September 1947', 'Omagh', 'Irish');
 } catch (Exception $error) {
     $error = $error->getMessage();
 }

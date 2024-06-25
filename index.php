@@ -10,11 +10,11 @@ $error = '';
 
 try {
     $movie1 = new Movie('Trainspotting', 1996, ['Commedia', 'Drammatico'], 'Scotland', 7, $actor1);
-    $movie2 = new Movie('Memento', 2000, ['Thriller', 'Drammatico', 'Noir'], 'United States', 8, $actor1);
-    $movie3 = new Movie('The Lord of The Rings', 2001, ['Fantastico', 'Epico', 'Avventura'], 'New Zealand', 10, $actor1);
-    $movie4 = new Movie('Interstellar', 2014, ['Fantascienza', 'Avventura'], 'United States', 10, $actor1);
-    $movie5 = new Movie("Alex l'Ariete", 2000, ['Poliziesco', 'Commedia'], 'Italia', 1, $actor1);
-    $movie6 = new Movie('Jurassic Park', 1993, ['Fantascienza', 'Avventura'], 'United States', 9, $actor1);
+    $movie2 = new Movie('Memento', 2000, ['Thriller', 'Drammatico', 'Noir'], 'United States', 8, $actor2, $actor3);
+    $movie3 = new Movie('The Lord of The Rings', 2001, ['Fantastico', 'Epico', 'Avventura'], 'New Zealand', 10, $actor4);
+    $movie4 = new Movie('Interstellar', 2014, ['Fantascienza', 'Avventura'], 'United States', 10, $actor5);
+    $movie5 = new Movie("Alex l'Ariete", 2000, ['Poliziesco', 'Commedia'], 'Italia', 1, $actor6);
+    $movie6 = new Movie('Jurassic Park', 1993, ['Fantascienza', 'Avventura'], 'United States', 9, $actor7);
 
     $movies_list = [$movie1, $movie2, $movie3, $movie4, $movie5, $movie6];
 } catch (Exception $error) {
