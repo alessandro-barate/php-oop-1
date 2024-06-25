@@ -7,15 +7,17 @@ class Movie
     private array $genre = [];
     private string $countryOfOrigin;
     private int $vote;
+    private string $actor;
 
     // Funzione costruttore
-    public function __construct(string $_title, int $_year, array $_genre, string $_countryOfOrigin, int $_vote)
+    public function __construct(string $_title, int $_year, array $_genre, string $_countryOfOrigin, int $_vote, Actor $_actor)
     {
         $this->title = $_title;
         $this->year = $_year;
         $this->genre = $_genre;
         $this->countryOfOrigin = $_countryOfOrigin;
         $this->setVote($_vote);
+        $this->actor = $_actor;
     }
 
     // Esiste anche public function __destruct(), serve ad eliminare le variabili che, una volta usate, non ci servono più. Non è pratica comune usarlo, lo mettiamo solo all'occasione
@@ -87,5 +89,18 @@ class Movie
     public function getVote(): int
     {
         return $this->vote;
+    }
+
+
+    // Setter e Getter dell'attributo $actor
+
+    public function setActor(string $movieActor): void
+    {
+        $this->actor = $movieActor;
+    }
+
+    public function getActor(): int
+    {
+        return $this->actor;
     }
 }
