@@ -52,7 +52,11 @@ try {
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                                 <p>Country of origin: <?php echo $movie->getCountryOfOrigin() ?></p>
-                                <p>Vote: <?php echo $movie->getVote() ?></p>
+                                <?php if (is_null($movie->getVote())) : ?>
+                                    <p>Non ci sono ancora voti</p>
+                                <?php else : ?>
+                                    <p>Vote: <?php echo $movie->getVote() ?></p>
+                                <?php endif ?>
                                 <p>Actor: <?php echo $movie->getActor()->getName(); ?>
                                 <ul>
                                     <li>

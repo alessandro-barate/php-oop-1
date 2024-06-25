@@ -8,7 +8,7 @@ class Movie
     private int $year;
     private array $genre = [];
     private string $countryOfOrigin;
-    private int $vote;
+    private ?int $vote = null;
     private Actor $actor;
 
     // Funzione costruttore
@@ -88,7 +88,7 @@ class Movie
         $this->vote = $movieVote;
     }
 
-    public function getVote(): int
+    public function getVote(): ?int
     {
         return $this->vote;
     }
@@ -96,7 +96,7 @@ class Movie
 
     // Setter e Getter dell'attributo $actor
 
-    public function setActor(string $movieActor): void
+    public function setActor(Actor $movieActor): void
     {
         $this->actor = $movieActor;
     }
