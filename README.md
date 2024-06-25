@@ -21,8 +21,7 @@ DAY 2
 Ciao ragazzi,
 continuate l'esercitazione di ieri, stessa repository: php-oop-1:
 
-- Aggiungete il concetto di composizione, facendo revisione del genere/generi dei movies e aggiungete la classe Actor da utilizzare nei Movies.
-  Ogni Movie può avere uno o più actor.
+- Aggiungete il concetto di composizione, facendo revisione del genere/generi dei movies e aggiungete la classe Actor da utilizzare nei Movies (ogni Movie può avere uno o più actor).
 
 - Create (OLTRE al setter relativo a generi e attori), due metodi per aggiungere nuovi Generi / Attori al Movie.
 
