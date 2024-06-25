@@ -9,7 +9,7 @@ class Actor
     private string $nationality;
 
     // Funzione costruttore
-    public function __construct(string $_name, int $_age, int $_dateOfBirth, string $_placeOfBirth, string $_nationality)
+    public function __construct(string $_name, int $_age, string $_dateOfBirth, string $_placeOfBirth, string $_nationality)
     {
         $this->name = $_name;
         $this->age = $_age;
@@ -81,4 +81,10 @@ class Actor
     {
         return $this->nationality;
     }
+}
+
+try {
+    $actor1 = new Actor('Ewan Gordon McGregor', 53, '31 March 1971', 'Perth', 'British');
+} catch (Exception $error) {
+    $error = $error->getMessage();
 }

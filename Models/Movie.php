@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/Actor.php';
+
 class Movie
 {
     private string $title;
@@ -7,7 +9,7 @@ class Movie
     private array $genre = [];
     private string $countryOfOrigin;
     private int $vote;
-    private string $actor;
+    private Actor $actor;
 
     // Funzione costruttore
     public function __construct(string $_title, int $_year, array $_genre, string $_countryOfOrigin, int $_vote, Actor $_actor)
@@ -99,7 +101,7 @@ class Movie
         $this->actor = $movieActor;
     }
 
-    public function getActor(): int
+    public function getActor(): Actor
     {
         return $this->actor;
     }
