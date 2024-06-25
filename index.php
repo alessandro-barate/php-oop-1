@@ -1,95 +1,12 @@
 <?php
-class Movie
-{
-    private string $title;
-    private int $year;
-    private array $genre = [];
-    private string $countryOfOrigin;
-    private int $vote;
 
-    public function __construct(string $_title, int $_year, array $_genre, string $_countryOfOrigin, int $_vote)
-    {
-        // echo 'ciao';
-        $this->title = $_title;
-        $this->year = $_year;
-        $this->genre = $_genre;
-        $this->countryOfOrigin = $_countryOfOrigin;
-        $this->setVote($_vote);
-    }
-
-    // Esiste anche public function __destruct(), serve ad eliminare le variabili che, una volta usate, non ci servono più. Non è pratica comune usarlo, lo mettiamo solo all'occasione
+// Importazione dati
+require_once __DIR__ . '/Models/Movie.php';
 
 
+// Logica del programma
 
-    // Setter e Getter dell'attributo $title
-
-    public function setTitle(string $movieTitle): void
-    {
-        $this->title = $movieTitle;
-    }
-
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
-
-
-    // Setter e Getter dell'attributo $year
-
-    public function setYear(int $movieYear): void
-    {
-        $this->year = $movieYear;
-    }
-
-    public function getYear(): int
-    {
-        return $this->year;
-    }
-
-
-    // Setter e Getter dell'attributo $genre
-
-    public function setGenre(string ...$movieGenre): void
-    {
-        $this->genre = [...$this->$movieGenre, ...$movieGenre];
-    }
-
-    public function getGenre(): array
-    {
-        return $this->genre;
-    }
-
-
-    // Setter e Getter dell'attributo $countryOfOrigin
-
-    public function setCountryOfOrigin(string $movieCountryOfOrigin): void
-    {
-        $this->countryOfOrigin = $movieCountryOfOrigin;
-    }
-
-    public function getCountryOfOrigin(): string
-    {
-        return $this->countryOfOrigin;
-    }
-
-
-    // Setter e Getter dell'attributo $vote
-
-    public function setVote(int $movieVote): void
-    {
-        if ($movieVote < 0 || $movieVote > 10) {
-            throw new Exception('Voto non valido');
-        }
-        $this->vote = $movieVote;
-    }
-
-    public function getVote(): int
-    {
-        return $this->vote;
-    }
-}
-
-$movies_list = [];
+$error = '';
 
 try {
     $movie1 = new Movie('Trainspotting', 1996, ['Commedia', 'Drammatico'], 'Scotland', 7);
@@ -101,9 +18,8 @@ try {
 
     $movies_list = [$movie1, $movie2, $movie3, $movie4, $movie5, $movie6];
 } catch (Exception $error) {
-    echo $error->getMessage();
+    $error = $error->getMessage();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -112,7 +28,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie PHP</title>
+    <title>Movies PHP</title>
 </head>
 
 <body>
@@ -120,23 +36,29 @@ try {
         <div class="row">
             <div class="col">
                 <h1>Movies</h1>
-                <ul>
-                    <?php foreach ($movies_list as $movie) : ?>
-                        <li>
-                            <h2><?php echo $movie->getTitle(); ?></h2>
-                            <p>Year: <?php echo $movie->getYear(); ?></p>
-                            <?php if (count($movie->getGenre())) : ?>
-                                <?php foreach ($movie->getGenre() as $genre) : ?>
-                                    <p>Genre: <?php echo $genre; ?></p>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                            <p>Country of origin: <?php echo $movie->getCountryOfOrigin() ?></p>
-                            <p>Vote: <?php echo $movie->getVote() ?></p>
-                        </li>
-                        <hr>
-                        <hr>
-                    <?php endforeach; ?>
-                </ul>
+                <?php if ($error) : ?>
+                    <p>
+                        <?php echo ($error); ?>
+                    </p>
+                <?php else : ?>
+                    <ul>
+                        <?php foreach ($movies_list as $movie) : ?>
+                            <li>
+                                <h2><?php echo $movie->getTitle(); ?></h2>
+                                <p>Year: <?php echo $movie->getYear(); ?></p>
+                                <?php if (count($movie->getGenre())) : ?>
+                                    <?php foreach ($movie->getGenre() as $genre) : ?>
+                                        <p>Genre: <?php echo $genre; ?></p>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                                <p>Country of origin: <?php echo $movie->getCountryOfOrigin() ?></p>
+                                <p>Vote: <?php echo $movie->getVote() ?></p>
+                            </li>
+                            <hr>
+                            <hr>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
             </div>
         </div>
     </div>
