@@ -72,6 +72,9 @@ class Movie
         return $this->countryOfOrigin;
     }
 
+
+    // Setter e Getter dell'attributo $vote
+
     public function setVote(int $movieVote): void
     {
         if ($movieVote < 0 || $movieVote > 10) {
@@ -90,8 +93,8 @@ $movies_list = [];
 
 try {
     $movie1 = new Movie('Trainspotting', 1996, ['Commedia', 'Drammatico'], 'Scotland', 7);
-    $movie2 = new Movie('Memento', 2000, ['Thriller', 'Drammatico'], 'United States', 8);
-    $movie3 = new Movie('The Lord of The Rings', 2001, ['Fantastico', 'Epico'], 'New Zealand', 10);
+    $movie2 = new Movie('Memento', 2000, ['Thriller', 'Drammatico', 'Noir'], 'United States', 8);
+    $movie3 = new Movie('The Lord of The Rings', 2001, ['Fantastico', 'Epico', 'Avventura'], 'New Zealand', 10);
     $movie4 = new Movie('Interstellar', 2014, ['Fantascienza', 'Avventura'], 'United States', 10);
     $movie5 = new Movie("Alex l'Ariete", 2000, ['Poliziesco', 'Commedia'], 'Italia', 1);
     $movie6 = new Movie('Jurassic Park', 1993, ['Fantascienza', 'Avventura'], 'United States', 9);
@@ -100,7 +103,6 @@ try {
 } catch (Exception $error) {
     echo $error->getMessage();
 }
-
 
 ?>
 
