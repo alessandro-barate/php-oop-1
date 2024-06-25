@@ -124,7 +124,7 @@ try {
                             <h2><?php echo $movie->getTitle(); ?></h2>
                             <p>Year: <?php echo $movie->getYear(); ?></p>
                             <?php if (count($movie->getGenre())) : ?>
-                                <?php foreach ($movie->$getGenre() as $genre) : ?>
+                                <?php foreach ($movie->getGenre() as $genre) : ?>
                                     <p>Genre: <?php echo $genre; ?></p>
                                 <?php endforeach; ?>
                             <?php endif; ?>
