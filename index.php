@@ -53,7 +53,22 @@ try {
                                 <?php endif; ?>
                                 <p>Country of origin: <?php echo $movie->getCountryOfOrigin() ?></p>
                                 <p>Vote: <?php echo $movie->getVote() ?></p>
-                                <p>Actor: <?php echo $movie->getActor()->getName(); ?></p>
+                                <p>Actor: <?php echo $movie->getActor()->getName(); ?>
+                                <ul>
+                                    <li>
+                                        <h5>Age: <span><?php echo $movie->getActor()->getAge(); ?></span></h5>
+                                    </li>
+                                    <li>
+                                        <h5>Date of birth: <span><?php echo $movie->getActor()->getDateOfBirth(); ?></span></h5>
+                                    </li>
+                                    <li>
+                                        <h5>Place of birth: <span><?php echo $movie->getActor()->getPlaceOfBirth(); ?></span></h5>
+                                    </li>
+                                    <li>
+                                        <h5>Nationality: <span><?php echo $movie->getActor()->getNationality(); ?></span></h5>
+                                    </li>
+                                </ul>
+                                </p>
                             </li>
                             <hr>
                             <hr>
