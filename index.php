@@ -44,7 +44,7 @@ class Movie
 
     public function setVote(int $movieVote): void
     {
-        if ($movieVote <= 1 || $movieVote > 5) {
+        if ($movieVote < 0 || $movieVote > 10) {
             throw new Exception('Voto non valido');
         }
         $this->vote = $movieVote;
@@ -56,9 +56,17 @@ class Movie
     }
 }
 
+$movies_list = [];
+
 try {
-    $trainspotting = new Movie('Trainspotting', 'Scotland', 8);
-    $memento = new Movie('Memento', 'United States', 2);
+    $movie1 = new Movie('Trainspotting', 'Scotland', 7);
+    $movie2 = new Movie('Memento', 'United States', 8);
+    $movie3 = new Movie('The Lord of The Rings', 'New Zealand', 10);
+    $movie4 = new Movie('Interstellar', 'United States', 10);
+    $movie5 = new Movie("Alex l'Ariete", 'Italia', 1);
+    $movie6 = new Movie('Jurassic Park', 'United States', 9);
+
+    $movies_list = [$movie1, $movie2, $movie3, $movie4, $movie5, $movie6];
 } catch (Exception $error) {
     echo $error->getMessage();
 }
@@ -79,19 +87,19 @@ try {
     <div class="container">
         <div class="row">
             <div class="col">
-                <ul>
-                    <li><?php echo $trainspotting->getTitle() ?>
-                        <ul>
-                            <li><?php echo $trainspotting->getCountryOfOrigin() ?></li>
-                            <li><?php echo $trainspotting->getVote() ?></li>
-                        </ul>
-                    </li>
-                    <li><?php echo $memento->getTitle() ?>
-                        <ul>
-                            <li><?php echo $memento->getCountryOfOrigin() ?></li>
-                            <li><?php echo $memento->getVote() ?></li>
-                        </ul>
-                    </li>
+                <ul>Movies:
+                    <?php foreach ($movies_list as $movie) : ?>
+                        <li>
+                            <h2><?php echo $movie->getTitle() ?></h2>
+                        <li>
+                            <p>Country of origin: <?php echo $movie->getCountryOfOrigin() ?></p>
+                        </li>
+                        <li>
+                            <p>Vote: <?php echo $movie->getVote() ?></p>
+                        </li>
+                        <hr>
+                        <hr>
+                    <?php endforeach ?>
                 </ul>
             </div>
         </div>
