@@ -3,6 +3,7 @@ class Movie
 {
     private string $title;
     private string $countryOfOrigin;
+    private int $vote;
 
     public function __construct(string $_title, string $_countryOfOrigin)
     {
@@ -15,7 +16,7 @@ class Movie
 
 
 
-    // Setter e Getter dell'attributo title
+    // Setter e Getter dell'attributo $title
 
     public function setTitle(string $movieTitle): void
     {
@@ -28,7 +29,7 @@ class Movie
     }
 
 
-    // Setter e Getter dell'attributo countryOfOrigin
+    // Setter e Getter dell'attributo $countryOfOrigin
 
     public function setCountryOfOrigin(string $movieCountryOfOrigin): void
     {
@@ -39,22 +40,28 @@ class Movie
     {
         return $this->countryOfOrigin;
     }
+
+    public function setVote(int $movieVote): void
+    {
+        if ($movieVote < 0) {
+            throw new Exception('Voto non valido');
+        }
+        $this->vote = $movieVote;
+    }
+
+    public function getVote(): int
+    {
+        return $this->vote;
+    }
 }
 
-$trainspotting = new Movie('Trainspotting', 'Scotland');    // tra () quello da passare al costruttore
-// $trainspotting->setTitle('Trainspotting');
-// $trainspotting->setCountryOfOrigin('Scotland');
-// Questi 2 sopra prima della scrittura del costruttore
+try {
+    $trainspotting = new Movie('Trainspotting', 'Scotland');
 
-
-$memento = new Movie('Memento', 'United States');   // tra () quello da passare al costruttore
-// $memento->setTitle('Memento');
-// $memento->setCountryOfOrigin('United States');
-// Questi 2 sopra prima della scrittura del costruttore
-
-// var_dump($trainspotting);
-// var_dump($memento);
-
+    $memento = new Movie('Memento', 'United States');
+} catch (Exception $e) {
+    echo ('Voto non valido');
+}
 
 
 ?>
