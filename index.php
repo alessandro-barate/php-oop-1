@@ -3,11 +3,11 @@ class Movie
 {
     private string $title;
     private int $year;
-    private array $genre;
+    private array $genre = [];
     private string $countryOfOrigin;
     private int $vote;
 
-    public function __construct(string $_title, int $_year, string $_genre, string $_countryOfOrigin, int $_vote)
+    public function __construct(string $_title, int $_year, array $_genre, string $_countryOfOrigin, int $_vote)
     {
         // echo 'ciao';
         $this->title = $_title;
@@ -49,12 +49,12 @@ class Movie
 
     // Setter e Getter dell'attributo $genre
 
-    public function setGenre(string $movieGenre): void
+    public function setGenre(string ...$movieGenre): void
     {
-        $this->genre = $movieGenre;
+        $this->genre = [...$this->$movieGenre, ...$movieGenre];
     }
 
-    public function getGenre(): string
+    public function getGenre(): array
     {
         return $this->genre;
     }
@@ -89,12 +89,12 @@ class Movie
 $movies_list = [];
 
 try {
-    $movie1 = new Movie('Trainspotting', 1996, 'Commedia', 'Scotland', 7); //drammatico
-    $movie2 = new Movie('Memento', 2000, 'Thriller', 'United States', 8); //drammatico
-    $movie3 = new Movie('The Lord of The Rings', 2001, 'Fantastico', 'New Zealand', 10); //epico
-    $movie4 = new Movie('Interstellar', 2014, 'Fantascienza', 'United States', 10); //avventura
-    $movie5 = new Movie("Alex l'Ariete", 2000, 'Poliziesco', 'Italia', 1);
-    $movie6 = new Movie('Jurassic Park', 1993, 'Fantascienza', 'United States', 9); // avventura
+    $movie1 = new Movie('Trainspotting', 1996, ['Commedia', 'Drammatico'], 'Scotland', 7);
+    $movie2 = new Movie('Memento', 2000, ['Thriller', 'Drammatico'], 'United States', 8);
+    $movie3 = new Movie('The Lord of The Rings', 2001, ['Fantastico', 'Epico'], 'New Zealand', 10);
+    $movie4 = new Movie('Interstellar', 2014, ['Fantascienza', 'Avventura'], 'United States', 10);
+    $movie5 = new Movie("Alex l'Ariete", 2000, ['Poliziesco', 'Commedia'], 'Italia', 1);
+    $movie6 = new Movie('Jurassic Park', 1993, ['Fantascienza', 'Avventura'], 'United States', 9);
 
     $movies_list = [$movie1, $movie2, $movie3, $movie4, $movie5, $movie6];
 } catch (Exception $error) {
@@ -121,15 +121,19 @@ try {
                 <ul>
                     <?php foreach ($movies_list as $movie) : ?>
                         <li>
-                            <h2><?php echo $movie->getTitle() ?></h2>
-                            <p>Year: <?php echo $movie->getYear() ?></p>
-                            <p>Genre: <?php echo $movie->getGenre() ?></p>
+                            <h2><?php echo $movie->getTitle(); ?></h2>
+                            <p>Year: <?php echo $movie->getYear(); ?></p>
+                            <?php if (count($movie->$getGenre())) : ?>
+                                <?php foreach ($movie->$getGenre() as $genre) : ?>
+                                    <p>Genre: <?php echo $genre; ?></p>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                             <p>Country of origin: <?php echo $movie->getCountryOfOrigin() ?></p>
                             <p>Vote: <?php echo $movie->getVote() ?></p>
                         </li>
                         <hr>
                         <hr>
-                    <?php endforeach ?>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
