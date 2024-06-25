@@ -10,7 +10,7 @@ class Movie
         // echo 'ciao';
         $this->title = $_title;
         $this->countryOfOrigin = $_countryOfOrigin;
-        $this->vote = $_vote;
+        $this->setVote($_vote);
     }
 
     // Esiste anche public function __destruct(), serve ad eliminare le variabili che, una volta usate, non ci servono più. Non è pratica comune usarlo, lo mettiamo solo all'occasione
