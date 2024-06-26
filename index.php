@@ -7,14 +7,20 @@ require_once __DIR__ . '/Models/Movie.php';
 // Logica del programma
 
 $error = '';
+$genre1 = ['Commedia', 'Drammatico'];
+$genre2 = ['Thriller', 'Drammatico', 'Noir'];
+$genre3 = ['Fantastico', 'Epico', 'Avventura'];
+$genre4 = ['Fantascienza', 'Avventura'];
+$genre5 = ['Poliziesco', 'Commedia'];
+$genre6 = ['Fantascienza', 'Avventura'];
 
 try {
-    $movie1 = new Movie('Trainspotting', 1996, ['Commedia', 'Drammatico'], 'Scotland', 7, $actor1);
-    $movie2 = new Movie('Memento', 2000, ['Thriller', 'Drammatico', 'Noir'], 'United States', 8, $actor2, $actor3);
-    $movie3 = new Movie('The Lord of The Rings', 2001, ['Fantastico', 'Epico', 'Avventura'], 'New Zealand', 10, $actor4);
-    $movie4 = new Movie('Interstellar', 2014, ['Fantascienza', 'Avventura'], 'United States', 10, $actor5);
-    $movie5 = new Movie("Alex l'Ariete", 2000, ['Poliziesco', 'Commedia'], 'Italia', 1, $actor6);
-    $movie6 = new Movie('Jurassic Park', 1993, ['Fantascienza', 'Avventura'], 'United States', 9, $actor7);
+    $movie1 = new Movie('Trainspotting', 1996, $genre1, 'Scotland', 7, $actor1);
+    $movie2 = new Movie('Memento', 2000, $genre2, 'United States', 8, $actor2, $actor3);
+    $movie3 = new Movie('The Lord of The Rings', 2001, $genre3, 'New Zealand', 10, $actor4);
+    $movie4 = new Movie('Interstellar', 2014, $genre4, 'United States', 10, $actor5);
+    $movie5 = new Movie("Alex l'Ariete", 2000, $genre5, 'Italia', 1, $actor6);
+    $movie6 = new Movie('Jurassic Park', 1993, $genre6, 'United States', 9, $actor7);
 
     $movies_list = [$movie1, $movie2, $movie3, $movie4, $movie5, $movie6];
 } catch (Exception $error) {
@@ -47,9 +53,7 @@ try {
                                 <h2><?php echo $movie->getTitle(); ?></h2>
                                 <p>Year: <?php echo $movie->getYear(); ?></p>
                                 <?php if (count($movie->getGenre())) : ?>
-                                    <?php foreach ($movie->getGenre() as $genre) : ?>
-                                        <p>Genre: <?php echo $genre; ?></p>
-                                    <?php endforeach; ?>
+                                    <p>Genre: <?php echo implode(', ', $movie->getGenre()); ?></p>
                                 <?php endif; ?>
                                 <p>Country of origin: <?php echo $movie->getCountryOfOrigin() ?></p>
                                 <?php if (is_null($movie->getVote())) : ?>
