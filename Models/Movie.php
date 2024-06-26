@@ -9,10 +9,10 @@ class Movie
     private array $genre = [];
     private string $countryOfOrigin;
     private ?int $vote = null;
-    private Actor $actor;
+    private array $actor = [];
 
     // Funzione costruttore
-    public function __construct(string $_title, int $_year, array $_genre, string $_countryOfOrigin, int $_vote, Actor $_actor)
+    public function __construct(string $_title, int $_year, array $_genre, string $_countryOfOrigin, int $_vote, array $_actor)
     {
         $this->title = $_title;
         $this->year = $_year;
@@ -96,12 +96,12 @@ class Movie
 
     // Setter e Getter dell'attributo $actor
 
-    public function setActor(Actor $movieActor): void
+    public function setActor(array $movieActor): void
     {
         $this->actor = $movieActor;
     }
 
-    public function getActor(): Actor
+    public function getActor(): array
     {
         return $this->actor;
     }
