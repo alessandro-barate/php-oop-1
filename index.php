@@ -2,6 +2,7 @@
 
 // Importazione dati
 require_once __DIR__ . '/Models/Movie.php';
+require_once __DIR__ . '/Models/Actor.php';
 
 
 // Logica del programma
@@ -19,11 +20,11 @@ $genre6 = ['Fantascienza', 'Avventura'];
 
 // Elenco degli attori dei film
 $cast1 = [$actor1, $actor2, $actor3, $actor4, $actor5, $actor6, $actor7];
-$cast2 = ['Commedia', 'Drammatico'];
-$cast3 = ['Commedia', 'Drammatico'];
-$cast4 = ['Commedia', 'Drammatico'];
-$cast5 = ['Commedia', 'Drammatico'];
-$cast6 = ['Commedia', 'Drammatico'];
+// $cast2 = ['Commedia', 'Drammatico'];
+// $cast3 = ['Commedia', 'Drammatico'];
+// $cast4 = ['Commedia', 'Drammatico'];
+// $cast5 = ['Commedia', 'Drammatico'];
+// $cast6 = ['Commedia', 'Drammatico'];
 
 try {
     $movie1 = new Movie('Trainspotting', 1996, $genre1, 'Scotland', 7, $cast1);
@@ -63,9 +64,7 @@ try {
                             <li>
                                 <h2><?php echo $movie->getTitle(); ?></h2>
                                 <p>Year: <?php echo $movie->getYear(); ?></p>
-                                <?php if (count($movie->getGenre())) : ?>
-                                    <p>Genre: <?php echo implode(', ', $movie->getGenre()); ?></p>
-                                <?php endif; ?>
+                                <p>Genre: <?php echo implode(', ', $movie->getGenre()); ?></p>
                                 <p>Country of origin: <?php echo $movie->getCountryOfOrigin() ?></p>
                                 <?php if (is_null($movie->getVote())) : ?>
                                     <p>Non ci sono ancora voti</p>
@@ -73,23 +72,19 @@ try {
                                     <p>Vote: <?php echo $movie->getVote() ?></p>
                                 <?php endif ?>
                                 <?php if (count($movie->getActor())) : ?>
-                                    <p>Actor: <?php echo $movie->getActor(); ?>
-                                    <?php endif; ?>
+                                    <h3>Actors: </h3>
                                     <ul>
-                                        <li>
-                                            <h5>Age: <span><?php echo $movie->getActor()->getAge(); ?></span></h5>
-                                        </li>
-                                        <li>
-                                            <h5>Date of birth: <span><?php echo $movie->getActor()->getDateOfBirth(); ?></span></h5>
-                                        </li>
-                                        <li>
-                                            <h5>Place of birth: <span><?php echo $movie->getActor()->getPlaceOfBirth(); ?></span></h5>
-                                        </li>
-                                        <li>
-                                            <h5>Nationality: <span><?php echo $movie->getActor()->getNationality(); ?></span></h5>
-                                        </li>
+                                        <?php foreach ($movie->getActor() as $actor) : ?>
+                                            <li>
+                                                <h4><?php echo $actor->getName(); ?></h4>
+                                                <p>Age: <?php echo $actor->getAge(); ?></p>
+                                                <p>Date of birth: <?php echo $actor->getDateOfBirth(); ?></p>
+                                                <p>Place of birth: <?php echo $actor->getPlaceOfBirth(); ?></p>
+                                                <p>Nationallity: <?php echo $actor->getNationality(); ?></p>
+                                            </li>
+                                        <?php endforeach; ?>
                                     </ul>
-                                    </p>
+                                <?php endif; ?>
                             </li>
                             <hr>
                             <hr>
